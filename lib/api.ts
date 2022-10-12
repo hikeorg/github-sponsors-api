@@ -4,16 +4,19 @@ import { parse } from "node-html-parser";
 const SPONSORS = process.env.SPONSORS_URL as string;
 const SPONSORING = process.env.SPONSORING_URL as string;
 
-export async function sponsors(user: string) {
-  let url = SPONSORS.replace("$u", user);
+export const FILTERS = ["active", "inactive"] as const;
+export type Filter = typeof FILTERS[number];
+
+export async function sponsors(user: string, filter: Filter = "active") {
+  let url = SPONSORS.replace("$u", user).replace("$f", filter);
 
   let page = 1;
   let text = "";
   while (true) {
-    const { body } = await request(url.replace("$p", page.toString()));
-    const partial = await body.text();
+    const res = await request(url.replace("$p", page.toString()));
+    const partial = await res.body.text();
 
-    if (!partial) {
+    if (!partial || res.statusCode !== 200) {
       break;
     }
 
@@ -42,7 +45,11 @@ export async function sponsorees(user: string) {
   return users.map((user) => user.getAttribute("href")?.substring(1));
 }
 
-export async function sponsoring(user: string, sponsor: string) {
-  const users = await sponsors(user);
+export async function sponsoring(
+  user: string,
+  sponsor: string,
+  filter: Filter = "active"
+) {
+  const users = await sponsors(user, filter);
   return users.includes(sponsor);
 }
