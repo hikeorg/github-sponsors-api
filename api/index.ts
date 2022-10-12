@@ -3,10 +3,10 @@ import { VercelApiHandler } from "@vercel/node";
 const handler: VercelApiHandler = async (_, res) => {
   res.status(200).send({
     endpoints: [
-      "GET /:user/sponsors",
-      "GET /:user/sponsorees",
-      "GET /:user/sponsored/:by",
-      "GET /:user/sponsoring/:who",
+      "GET /api/:user/sponsors",
+      "GET /api/:user/sponsorees",
+      "GET /api/:user/sponsored/:by",
+      "GET /api/:user/sponsoring/:who",
     ],
   });
 };

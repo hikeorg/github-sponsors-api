@@ -6,13 +6,13 @@ Unofficial GitHub Sponsors API
 
 ### Endpoints
 
-#### `GET /:user/sponsors`
+#### `GET /api/:user/sponsors`
 
-#### `GET /:user/sponsorees`
+#### `GET /api/:user/sponsorees`
 
-#### `GET /:user/sponsored/:by`
+#### `GET /api/:user/sponsored/:by`
 
-#### `GET /:user/sponsoring/:who`
+#### `GET /api/:user/sponsoring/:who`
 
 ### Local development
 
