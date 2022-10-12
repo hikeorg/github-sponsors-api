@@ -1,9 +1,7 @@
-import { request } from "undici";
-import { parse } from "node-html-parser";
 import { VercelRequest as Rq, VercelResponse as Rs } from "@vercel/node";
+import { sponsorees } from "../../../lib/api";
 
 const MAX_AGE = 86400;
-const SPONSORING_URL = "https://github.com/$u?tab=sponsoring";
 
 const handler = async (req: Rq, res: Rs) => {
   const user = req.query?.user as string;
@@ -17,18 +15,7 @@ const handler = async (req: Rq, res: Rs) => {
   }
 
   try {
-    const { body } = await request(SPONSORING_URL.replace("$u", user));
-    const text = await body.text();
-
-    const html = parse(text);
-    const sponsoring = html.querySelector("a[data-tab-item=sponsoring]");
-
-    if (!sponsoring) {
-      return res.status(200).send([]);
-    }
-
-    const users = html.querySelectorAll("a[data-hovercard-type=user]");
-    let data = users.map((user) => user.getAttribute("href")?.substring(1));
+    const data = await sponsorees(user);
 
     res.setHeader("Cache-Control", `s-maxage=${MAX_AGE}`);
     res.status(200).send(data);

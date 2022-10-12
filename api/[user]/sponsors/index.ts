@@ -1,11 +1,7 @@
-import { request } from "undici";
-import { parse } from "node-html-parser";
 import { VercelRequest as Rq, VercelResponse as Rs } from "@vercel/node";
 import { sponsors } from "../../../lib/api";
 
 const MAX_AGE = 86400;
-const SPONSORS_URL =
-  "https://github.com/sponsors/$u/sponsors_partial?filter=all&page=$p";
 
 const handler = async (req: Rq, res: Rs) => {
   const user = req.query?.user as string;
