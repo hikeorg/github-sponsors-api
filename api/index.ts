@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import cors from "cors";
 import express from "express";
 import * as openapi from "express-openapi";
 import * as dependencies from "../src/dependencies";
@@ -11,6 +12,7 @@ const app = express();
 const paths = path.resolve(PATHS);
 const apiDoc = fs.readFileSync(path.resolve(API), "utf8");
 
+app.use(cors());
 app.disable("x-powered-by");
 
 (async function () {
