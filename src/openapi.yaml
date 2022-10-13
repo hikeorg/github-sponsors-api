@@ -95,11 +95,19 @@ components:
       schema:
         $ref: "#/components/schemas/user"
     sponsor:
-      $ref: "#/components/parameters/user"
+      in: path
       name: sponsor
+      required: true
+      description: sponsor to lookup
+      schema:
+        $ref: "#/components/schemas/user"
     sponsoree:
-      $ref: "#/components/parameters/user"
+      in: path
       name: sponsoree
+      required: true
+      description: sponsoree to lookup
+      schema:
+        $ref: "#/components/schemas/user"
 
   responses:
     ok:
