@@ -16,6 +16,8 @@ Unofficial GitHub Sponsors API
 
 Returns an array of usernames who are `active` (default) or `inactive` sponsors for `:user`
 
+---
+
 #### GET /api/:user/sponsorees
 
 ```
@@ -23,6 +25,8 @@ Returns an array of usernames who are `active` (default) or `inactive` sponsors 
 ```
 
 Returns an array of usernames which are sponsored by `:user` username.
+
+---
 
 #### GET /api/:user/sponsored/:by
 
@@ -37,6 +41,8 @@ Given that `:user` is sponsored `:by` username.
 ```
 
 Given that `:user` is NOT sponsored `:by` username.
+
+---
 
 #### GET /api/:user/sponsoring/:who
 
