@@ -2,63 +2,9 @@
 
 Unofficial GitHub Sponsors API
 
-## Documentation
+### Documentation
 
-### Endpoints
-
-#### GET /api/:user/sponsors
-
-`filter?: active | inactive = active`
-
-```
-200 ["bob", "alice"]
-```
-
-Returns an array of usernames who are `active` (default) or `inactive` sponsors for `:user`
-
----
-
-#### GET /api/:user/sponsorees
-
-```
-200 ["bob", "alice"]
-```
-
-Returns an array of usernames which are sponsored by `:user` username.
-
----
-
-#### GET /api/:user/sponsored/:by
-
-```
-200 { "sponsored": true }
-```
-
-Given that `:user` is sponsored `:by` username.
-
-```
-404 { "sponsored": false }
-```
-
-Given that `:user` is NOT sponsored `:by` username.
-
----
-
-#### GET /api/:user/sponsoring/:who
-
-`filter?: active | inactive = active`
-
-```
-200 { "sponsoring": true }
-```
-
-Given that `:user` is or was (depending on the `filter` value) sponsoring `:who` username.
-
-```
-404 { "sponsoring": false }
-```
-
-Given `:user` is NOT sponsoring `:who` username.
+Checkout the [`openapi.yaml` source code](./src/openapi.yaml) for documentation.
 
 ### Local development
 

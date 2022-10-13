@@ -1,0 +1,114 @@
+openapi: 3.0.3
+
+servers:
+  - url: http://localhost:3000
+
+info:
+  title: GitHub Sponsors API - OpenAPI 3.0
+  version: 1.0.0
+
+tags:
+  - name: sponspor
+    description: Operations on user sponsors
+
+paths:
+  /api/{user}/sponsor:
+    get:
+      tags:
+        - sponsor
+      summary: Get user sponsors
+      description: Returns an array of sponsors for a given user
+      operationId: getSponsorsByUser
+      parameters:
+        - $ref: "#/components/parameters/user"
+        - $ref: "#/components/parameters/filter"
+      responses:
+        "200":
+          $ref: "#/components/responses/userArray"
+        "400":
+          $ref: "#/components/responses/badRequest"
+        "404":
+          $ref: "#/components/responses/notFound"
+
+  /api/{user}/sponsoree:
+    get:
+      tags:
+        - sponsoree
+      summary: Get user sponsorees
+      description: Retrieves a list of usernames who are sponsored by the given user
+      operationId: getSponsoreesByUser
+      parameters:
+        - $ref: "#/components/parameters/user"
+        - $ref: "#/components/parameters/filter"
+      responses:
+        "200":
+          $ref: "#/components/responses/userArray"
+        "400":
+          $ref: "#/components/responses/badRequest"
+        "404":
+          $ref: "#/components/responses/notFound"
+
+  /api/{user}/sponsor/{sponsor}:
+    get:
+      tags:
+        - sponsorship
+      summary: Sponsorship check
+      description: Checks if a given user is being sponsored by another
+      operationId: checkSponsorship
+      parameters:
+        - $ref: "#/components/parameters/user"
+        - $ref: "#/components/parameters/filter"
+        - $ref: "#/components/parameters/sponsor"
+      responses:
+        "200":
+          $ref: "#/components/responses/ok"
+        "400":
+          $ref: "#/components/responses/badRequest"
+        "404":
+          $ref: "#/components/responses/notFound"
+
+components:
+  schemas:
+    filter:
+      type: string
+      enum: [all, active, inactive]
+    user:
+      type: string
+      pattern: '/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i'
+    userArray:
+      type: array
+      items:
+        $ref: "#/components/schemas/user"
+
+  parameters:
+    filter:
+      in: query
+      name: filter
+      description: Filter sponsorships
+      schema:
+        $ref: "#/components/schemas/filter"
+    user:
+      in: path
+      name: user
+      required: true
+      description: user to lookup
+      schema:
+        $ref: "#/components/schemas/user"
+    sponsor:
+      $ref: "#/components/parameters/user"
+    sponsoree:
+      $ref: "#/components/parameters/user"
+
+  responses:
+    ok:
+      description: Ok
+    notFound:
+      description: Not found
+    badRequest:
+      description: Bad request
+    userArray:
+      description: Array of users
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/userArray"

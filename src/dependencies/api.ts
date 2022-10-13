@@ -41,8 +41,8 @@ export async function sponsorees(user: string) {
     return [];
   }
 
-  const users = html.querySelectorAll("a[data-hovercard-type=user]");
-  return users.map((user) => user.getAttribute("href")?.substring(1));
+  const users = html.querySelectorAll("a[data-hovercard-type=user] img");
+  return users.map((user) => user.getAttribute("alt")?.substring(1));
 }
 
 export async function sponsoring(
