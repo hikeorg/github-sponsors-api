@@ -1,3 +1,8 @@
 {
-  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" }
+  ],
+  "redirects": [
+    { "source": "/", "destination": "https://petstore.swagger.io/?url=https://github-sponsors-api.vercel.app/api" }
+  ]
 }
