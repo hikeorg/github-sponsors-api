@@ -48,7 +48,7 @@ Given that `:user` is or was (depending on the `filter` value) sponsoring `:who`
 404 { "sponsoring": false }
 ```
 
-Given `:user` is not sponsoring `:who` username.
+Given `:user` is NOT sponsoring `:who` username.
 
 ### Local development
 
