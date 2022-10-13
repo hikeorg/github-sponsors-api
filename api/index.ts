@@ -19,7 +19,7 @@ app.disable("x-powered-by");
     paths,
     apiDoc,
     dependencies,
-    docsPath: "/api/docs",
+    docsPath: "/api",
     promiseMode: true,
   });
 })();
