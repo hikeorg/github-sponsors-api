@@ -8,8 +8,12 @@ info:
   version: 1.0.0
 
 tags:
-  - name: sponspor
+  - name: sponsor
     description: Operations on user sponsors
+  - name: sponsoree
+    description: Operations on sponsorees
+  - name: sponsorship
+    description: Operations on sponsorships
 
 paths:
   /api/{user}/sponsor:
