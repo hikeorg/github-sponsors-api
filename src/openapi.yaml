@@ -96,8 +96,10 @@ components:
         $ref: "#/components/schemas/user"
     sponsor:
       $ref: "#/components/parameters/user"
+      name: sponsor
     sponsoree:
       $ref: "#/components/parameters/user"
+      name: sponsoree
 
   responses:
     ok:
