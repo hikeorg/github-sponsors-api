@@ -34,6 +34,8 @@ Given that `:user` is sponsored `:by` username.
 404 { "sponsored": false }
 ```
 
+Given that `:user` is NOT sponsored `:by` username.
+
 #### GET `/api/:user/sponsoring/:who(?filter=active|inactive)`
 
 ```
