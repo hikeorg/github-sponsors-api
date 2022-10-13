@@ -31,7 +31,7 @@ Returns an array of usernames which are sponsored by `:user` username.
 #### GET /api/:user/sponsored/:by
 
 ```
-200 { "sponsored: true }
+200 { "sponsored": true }
 ```
 
 Given that `:user` is sponsored `:by` username.
@@ -49,7 +49,7 @@ Given that `:user` is NOT sponsored `:by` username.
 `filter?: active | inactive = active`
 
 ```
-200 { "sponsoring: true }
+200 { "sponsoring": true }
 ```
 
 Given that `:user` is or was (depending on the `filter` value) sponsoring `:who` username.
