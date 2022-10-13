@@ -1,8 +1,7 @@
 openapi: 3.0.3
 
 servers:
-  - url: http://localhost:3000
-  - url: https://ghsponsors.vercel.app/
+  - url: https://ghsponsors.vercel.app
 
 info:
   title: GitHub Sponsors API - OpenAPI 3.0
