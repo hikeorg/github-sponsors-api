@@ -14,7 +14,7 @@ Unofficial GitHub Sponsors API
 200 ["bob", "alice"]
 ```
 
-Returns an array of usernames with `active` (default) or `inactive` sponsors for `:user`
+Returns an array of usernames who are `active` (default) or `inactive` sponsors for `:user`
 
 #### GET /api/:user/sponsorees
 
