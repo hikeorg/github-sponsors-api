@@ -4,7 +4,7 @@ Unofficial GitHub Sponsors API
 
 ### Documentation
 
-Checkout the [`openapi.yaml` source code](./src/openapi.yaml) or the Swagger UI for [more interactive documentation](https://github-sponsors-api.vercel.app/api).
+Checkout the [`openapi.yaml` source code](./src/openapi.yaml) or the Swagger UI for [more interactive documentation](https://petstore.swagger.io/?url=https%3A%2F%2Fgithub-sponsors-api.vercel.app%2Fapi).
 
 ### Local development
 
